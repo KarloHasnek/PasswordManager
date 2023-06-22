@@ -39,7 +39,6 @@ public class LoginFrame extends JFrame {
 
         initComps();
         layoutComps();
-        activateComps();
     }
 
     private void initComps() {
@@ -111,8 +110,8 @@ public class LoginFrame extends JFrame {
         register.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RegisterFrame regFrame = new RegisterFrame();
-                regFrame.setAlwaysOnTop(true);
+                System.out.println("Register button pressed!");
+                new RegisterFrame().setAlwaysOnTop(true);
             }
         });
     }

@@ -41,7 +41,7 @@ public class MainFrame extends JFrame {
     }
 
     private void layoutComps() {
-        setLayout(new MigLayout("insets 50 50 50 50, debug"));
+        setLayout(new MigLayout("insets 50 50 50 50"));
         add(userName);
     }
 

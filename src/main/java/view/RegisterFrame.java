@@ -122,7 +122,7 @@ public class RegisterFrame extends JFrame {
                     String password = AUXCLS.convertPasswordToString(passwordField.getPassword());
                     Map<String, String> map = new HashMap<>();
                     map.put(username, password);
-//                    DBHandler.addToDB(new User(name, surname, age, map));
+                    DBHandler.addToDB(new User(name, surname, age, map));
                     String message2 = "You have successfully registered!";
                     JOptionPane.showMessageDialog(RegisterFrame.this, message2, "Registration Complete", JOptionPane.INFORMATION_MESSAGE);
                     if (JOptionPane.OK_OPTION == 0) {

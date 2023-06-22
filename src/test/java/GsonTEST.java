@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import static controllers.DBHandler.addToDB;
+import static controllers.DBHandler.saveUsersToJson;
 
 public class GsonTEST {
 
@@ -30,6 +31,9 @@ public class GsonTEST {
         }
         System.out.println(users2);
 
+        // Testiranje dodavanja 3. user-a u bazu
+        User user3 = new User("user3", "user3", "16/10/2020", Map.of("user3", "user3"));
+        saveUsersToJson(users);
 
     }
 }
