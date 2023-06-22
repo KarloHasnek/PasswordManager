@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import models.User;
 
-import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -14,9 +13,8 @@ import static controllers.AUXCLS.JSON_FILE_PATH;
 public class DBHandler {
 
     public static ArrayList<User> readDB() {
-
         Gson gson = new Gson();
-        ArrayList<User> users;
+        ArrayList<User> users = new ArrayList<>();
 
         File file = new File(JSON_FILE_PATH);
 
@@ -29,7 +27,7 @@ public class DBHandler {
                 e.printStackTrace();
             }
         } else {
-            users = new ArrayList<>();
+            System.out.println("File doesn't exist!");
         }
 
         return users;

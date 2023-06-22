@@ -96,7 +96,7 @@ public class LoginFrame extends JFrame {
                     }
 
                     if (usersCredentials.containsKey(username) && usersCredentials.get(username).equals(password)) {
-                        User user = DBHandler.getUser(users, username);
+                        User user = DBHandler.getUser(DBHandler.readDB(), username);
                         loginListener.loginEventOccurred(new LoginEvent(this, user));
                         dispose();
                     } else {
