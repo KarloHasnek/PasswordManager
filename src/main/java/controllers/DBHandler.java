@@ -16,7 +16,7 @@ public class DBHandler {
     public static ArrayList<User> readDB() {
 
         Gson gson = new Gson();
-        ArrayList<User> users = new ArrayList<>();
+        ArrayList<User> users;
 
         File file = new File(JSON_FILE_PATH);
 
@@ -25,18 +25,24 @@ public class DBHandler {
                 Type userListType = new TypeToken<ArrayList<User>>() {
                 }.getType();
                 users = gson.fromJson(reader, userListType);
+                
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
             JOptionPane.showMessageDialog(null, "No database found!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-
+        System.out.println(users + "-- here sou");
         return users;
     }
 
     public static Map<String, String> readCredentials(ArrayList<User> users) {
-        return null;
+        Map<String, String> usersCredentials = new HashMap<>();
+
+        for (User user : users) {
+            usersCredentials.put(user.getUsername(), user.getPassword());
+        }
+        return usersCredentials;
     }
 
     public static User getUser(ArrayList<User> users, String username) {

@@ -91,6 +91,7 @@ public class LoginFrame extends JFrame {
                         return;
                     }
                     String password = AUXCLS.convertPasswordToString(passwordField.getPassword());
+
                     if (password.equals("")) {
                         JOptionPane.showMessageDialog(LoginFrame.this, "Please enter a password!", "Error", JOptionPane.ERROR_MESSAGE);
                         return;
