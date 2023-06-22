@@ -1,85 +1,77 @@
 package controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import models.User;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
-import org.apache.commons.csv.CSVRecord;
 
 import javax.swing.*;
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.*;
+
+import static controllers.AUXCLS.JSON_FILE_PATH;
 
 public class DBHandler {
 
-    public static Set<User> readDB() throws IOException {
-        Set<User> data = new HashSet<>();
-        Reader in = new FileReader(AUXCLS.FILE_PATH);
-        final String[] HEADERS = {"Name", "Surname", "Age", "Username", "Password"};
+    public static ArrayList<User> readDB() {
 
-        CSVFormat csvFormat = CSVFormat.DEFAULT.builder()
-                .setHeader(HEADERS)
-                .setSkipHeaderRecord(true)
-                .build();
+        Gson gson = new Gson();
+        ArrayList<User> users = new ArrayList<>();
 
-        Iterable<CSVRecord> records = csvFormat.parse(in);
+        File file = new File(JSON_FILE_PATH);
 
-        for (CSVRecord record : records) {
-            // Used to create instances of User
-            Map<String, String> credentials = new HashMap<>();
-            String username = record.get("Username");
-            String password = record.get("Password");
-            String name = record.get("Name");
-            String surname = record.get("Surname");
-            String age = record.get("Age");
-            credentials.put(username, password);
-
-            User user = new User(name, surname, age, credentials);
-            data.add(user);
+        if (file.exists()) {
+            try (Reader reader = new FileReader(file)) {
+                Type userListType = new TypeToken<ArrayList<User>>() {
+                }.getType();
+                users = gson.fromJson(reader, userListType);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No database found!", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
-        return data;
+        return users;
     }
 
-    public static Map<String, String> readCredentials(Set<User> users) {
-        Map<String, String> credentials = new HashMap<>();
-
-        for (User user : users) {
-            credentials.putAll(user.getCredentials());
-        }
-
-        return credentials;
+    public static Map<String, String> readCredentials(ArrayList<User> users) {
+        return null;
     }
 
-    public static void addToDB(String name, String surname, String age, String username, String password) throws IOException {
-        File file = new File(AUXCLS.FILE_PATH);
-        FileWriter writer = new FileWriter(file, true);
-        CSVPrinter printer = new CSVPrinter(writer, CSVFormat.DEFAULT);
-        printer.printRecord(name, surname, age, username, password);
-        printer.close();
+    public static User getUser(ArrayList<User> users, String username) {
+        return null;
     }
 
     public static boolean isUsernamePresent(String username) {
-        Set<User> users = null;
-        try {
-            users = readDB();
-        } catch (IOException e) {
-            System.out.println("Something went wrong with database!");
-            String message3 = "Our database currently has problems.\nPlease try again later.";
-            JOptionPane.showMessageDialog(null, message3, "Oops!", JOptionPane.WARNING_MESSAGE);
-        }
-        Map<String, String> credentials = readCredentials(users);
-
-        return credentials.containsKey(username);
+        return false;
     }
 
-    public static User getUser(Set<User> users, String username) {
-        User user = null;
-        for (User u : users) {
-            if (u.getCredentials().containsKey(username)) {
-                user = u;
-                break;
-            }
+    public static void addToDB(User user) {
+        ArrayList<User> users = readDB();
+        if (users == null) users = new ArrayList<>();
+
+        users.add(user);
+
+        clearDB();
+
+        saveUsersToJson(users);
+    }
+
+    private static void clearDB() {
+        try (Writer writer = new FileWriter(JSON_FILE_PATH)) {
+            writer.write("");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return user;
+    }
+
+    public static void saveUsersToJson(ArrayList<User> users) {
+        try (Writer writer = new FileWriter(JSON_FILE_PATH)) {
+            Gson gson = new Gson();
+            gson.toJson(users, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

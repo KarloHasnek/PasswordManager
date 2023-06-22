@@ -2,6 +2,7 @@ package view;
 
 import controllers.AUXCLS;
 import controllers.DBHandler;
+import models.User;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import java.awt.*;
@@ -119,17 +120,13 @@ public class RegisterFrame extends JFrame {
                 } else if (Arrays.toString(passwordField.getPassword()).equals(Arrays.toString(confirmPasswordField.getPassword()))) {
                     System.out.println("Passwords match");
                     String password = AUXCLS.convertPasswordToString(passwordField.getPassword());
-                    try {
-                        DBHandler.addToDB(name, surname, age, username, password);
-                        String message2 = "You have successfully registered!";
-                        JOptionPane.showMessageDialog(RegisterFrame.this, message2, "Registration Complete", JOptionPane.INFORMATION_MESSAGE);
-                        if (JOptionPane.OK_OPTION == 0) {
-                            dispose();
-                        }
-                    } catch (IOException ex) {
-                        System.out.println("Something went wrong with database!");
-                        String message3 = "Our database currently has problems.\nPlease try again later.";
-                        JOptionPane.showMessageDialog(RegisterFrame.this, message3, "Oops!", JOptionPane.WARNING_MESSAGE);
+                    Map<String, String> map = new HashMap<>();
+                    map.put(username, password);
+//                    DBHandler.addToDB(new User(name, surname, age, map));
+                    String message2 = "You have successfully registered!";
+                    JOptionPane.showMessageDialog(RegisterFrame.this, message2, "Registration Complete", JOptionPane.INFORMATION_MESSAGE);
+                    if (JOptionPane.OK_OPTION == 0) {
+                        dispose();
                     }
                 } else {
                     System.out.println("Passwords don't match");

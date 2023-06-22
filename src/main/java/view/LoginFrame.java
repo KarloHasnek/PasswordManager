@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
@@ -22,7 +23,7 @@ public class LoginFrame extends JFrame {
     private JPasswordField passwordField;
     private JButton logIn;
     private JButton register;
-    private Set<User> users;
+    private ArrayList<User> users;
     private Map<String, String> usersCredentials;
     private LoginListener loginListener;
 
@@ -42,12 +43,9 @@ public class LoginFrame extends JFrame {
     }
 
     private void initComps() {
-        try {
-            users = DBHandler.readDB();
-            usersCredentials = DBHandler.readCredentials(users);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error reading database file", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        users = DBHandler.readDB();
+        System.out.println(users);
+        usersCredentials = DBHandler.readCredentials(users);
 
         icon = new JLabel();
         icon.setIcon(new ImageIcon("src/main/resources/icon64.png"));
@@ -85,11 +83,7 @@ public class LoginFrame extends JFrame {
                 public void actionPerformed(ActionEvent e) {
 
                     // Updating the credentials map
-                    try {
-                        usersCredentials = DBHandler.readCredentials(DBHandler.readDB());
-                    } catch (IOException ex) {
-                        System.out.println("Error reading database!");
-                    }
+                    usersCredentials = DBHandler.readCredentials(DBHandler.readDB());
 
                     String username = usernameField.getText();
                     if (username.equals("")) {

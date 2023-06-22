@@ -1,9 +1,8 @@
 package models;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class User {
 
@@ -49,6 +48,14 @@ public class User {
         return credentials;
     }
 
+    public String getUsername() {
+        return credentials.keySet().iterator().next();
+    }
+
+    public String getPassword() {
+        return credentials.values().iterator().next();
+    }
+
     public void setCredentials(HashMap<String, String> credentials) {
         this.credentials = credentials;
     }
@@ -61,6 +68,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User -> [" + "name='" + name + '\'' + ", surname='" + surname + '\'' + ", username=" + credentials.get(this) + ']';
+        return "User -> [" + "name='" + name + '\'' + ", surname='" + surname + '\'' + ", username=" + credentials.keySet() + ']';
     }
 }
