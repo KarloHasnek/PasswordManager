@@ -28,6 +28,9 @@ public class LoginFrame extends JFrame {
     private Map<String, String> usersCredentials;
     private LoginListener loginListener;
 
+    /**
+     * Constructor for the login frame.
+     */
     public LoginFrame() {
         super("Password Manager Login");
         setSize(new Dimension(MainFrame.WIDTH, MainFrame.HEIGHT));

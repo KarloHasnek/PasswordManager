@@ -14,6 +14,9 @@ public class PasswordsPanel extends JPanel {
     private User user;
     private Map<String, Map<String, String>> passwords;
 
+    /**
+     * Constructor for the passwords panel.
+     */
     public PasswordsPanel() {
         setBorder(BorderFactory.createTitledBorder("My passwords"));
         setLayout(new MigLayout("w 680"));

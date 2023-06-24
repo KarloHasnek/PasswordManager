@@ -17,6 +17,12 @@ public class PasswordPanel extends JPanel {
     private String passwordString;
     private JButton showPasswordButton;
 
+    /**
+     * Constructor for the password panel.
+     * @param website string representing the website adress
+     * @param username string representing the username
+     * @param password string representing the password
+     */
     public PasswordPanel(String website, String username, String password) {
         this.website = new JLabel(website);
         this.username = new JLabel(username);

@@ -16,9 +16,9 @@ public class User {
 
     /**
      * Constructor for User class.
-     * @param name
-     * @param surname
-     * @param age
+     * @param name The name of the user.
+     * @param surname The surname of the user.
+     * @param age The age of the user.
      * @param credentials Map of username and password.
      */
     public User(String name, String surname, String age, Map<String, String> credentials) {

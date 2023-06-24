@@ -16,6 +16,9 @@ public class PasswordDialogFrame extends JFrame {
     private JButton addButton;
     private MainActionListener mainActionListener;
 
+    /**
+     * Constructor for the password dialog frame.
+     */
     public PasswordDialogFrame() {
         super("Password Manager");
         setSize(400, 250);

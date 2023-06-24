@@ -29,6 +29,9 @@ public class RegisterFrame extends JFrame {
     private JButton registerButton;
     private Date date;
 
+    /**
+     * Constructor for the register frame.
+     */
     public RegisterFrame() {
         super("Registration");
         setSize(new Dimension(WIDTH, HEIGHT));

@@ -39,6 +39,9 @@ public class MainFrame extends JFrame {
     private PasswordDialogFrame passwordDialogFrame;
     private MainActionListener mainActionListener;
 
+    /**
+     * Constructor for the main frame.
+     */
     public MainFrame() {
         super("Password Manager");
         setSize(WIDTH, HEIGHT);

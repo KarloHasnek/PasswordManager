@@ -1,3 +1,5 @@
+package Application;
+
 import com.formdev.flatlaf.FlatDarculaLaf;
 import view.MainFrame;
 

@@ -23,6 +23,10 @@ public class AccountDetailsFrame extends JFrame{
     private JButton cancelButton;
     private JButton editButton;
 
+    /**
+     * Constructor for the AccountDetailsFrame class.
+     * @param user The user whose account details are being displayed.
+     */
     public AccountDetailsFrame(User user) {
         super("Account Details");
         setSize(300, 270);

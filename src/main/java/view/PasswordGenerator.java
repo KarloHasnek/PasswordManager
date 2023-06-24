@@ -21,6 +21,9 @@ public class PasswordGenerator extends JFrame {
     private static final String NUMBERS = "0123456789";
     private static final String SYMBOLS = "!@#$%^&*_=+-/.?<>)";
 
+    /**
+     * Constructor for the password generator frame.
+     */
     public PasswordGenerator() {
         super("Password Generator");
         setSize(400, 250);
