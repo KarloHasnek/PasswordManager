@@ -1,12 +1,17 @@
 import com.formdev.flatlaf.FlatDarculaLaf;
-import com.formdev.flatlaf.FlatLightLaf;
-import view.LoginFrame;
 import view.MainFrame;
 
 import javax.swing.*;
 
+/**
+ * Main class of the application.
+ */
 public class App {
 
+    /**
+     * Main method of the application that starts the GUI and sets the look and feel of the application.
+     * @param args
+     */
     public static void main(String[] args) {
 
         try {

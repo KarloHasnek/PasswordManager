@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/97466/Documents/Faks/Objektno Orjentirano Programiranje/Zavrsni/PasswordManager/src/main/java</OriginalElement>
+  <nodes>
+    <node x="961.125" y="1392.0">App</node>
+    <node x="364.64919354838713" y="851.0">view.LoginFrame</node>
+    <node x="1456.75" y="874.0">view.PasswordGenerator</node>
+    <node x="130.0" y="555.0">controllers.LoginEvent</node>
+    <node x="758.75" y="840.0">controllers.MainActionListener</node>
+    <node x="370.0" y="589.5">controllers.LoginListener</node>
+    <node x="378.0" y="1512.0">controllers.AUXCLS</node>
+    <node x="1097.75" y="851.0">view.PasswordsPanel</node>
+    <node x="-111.0" y="1512.0">models.DBHandler</node>
+    <node x="1558.75" y="545.0">view.AccountDetailsFrame</node>
+    <node x="146.14919354838707" y="-14.0">models.User</node>
+    <node x="929.625" y="1089.0">view.MainFrame</node>
+    <node x="792.1491935483871" y="445.0">view.PasswordDialogFrame</node>
+    <node x="1194.75" y="545.0">view.PasswordPanel</node>
+    <node x="-111.0" y="534.0">view.RegisterFrame</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="view.MainFrame" target="view.PasswordGenerator" relationship="CREATE">
+      <point x="120.5" y="-15.0" />
+      <point x="1559.25" y="1200.5" />
+      <point x="0.0" y="59.5" />
+    </edge>
+    <edge source="view.LoginFrame" target="view.RegisterFrame" relationship="CREATE">
+      <point x="-117.0" y="0.0" />
+      <point x="-1.0" y="933.5" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="controllers.MainActionListener" target="view.PasswordDialogFrame" relationship="TO_ONE">
+      <point x="0.0" y="93.5" />
+      <point x="917.75" y="1058.0" />
+      <point x="1188.125" y="1058.0" />
+      <point x="1188.125" y="1096.5" />
+      <point x="1679.25" y="1096.5" />
+      <point x="1679.25" y="703.5" />
+      <point x="151.9998064516128" y="88.0" />
+    </edge>
+    <edge source="view.PasswordDialogFrame" target="controllers.MainActionListener" relationship="TO_ONE">
+      <point x="-152.00019354838707" y="99.0" />
+      <point x="325.5" y="714.5" />
+      <point x="325.5" y="1058.0" />
+      <point x="751.25" y="1058.0" />
+      <point x="751.25" y="1074.0" />
+      <point x="902.75" y="1074.0" />
+      <point x="-15.0" y="93.5" />
+    </edge>
+    <edge source="view.RegisterFrame" target="models.User" relationship="CREATE">
+      <point x="0.0" y="-81.5" />
+      <point x="-1.0" y="189.5" />
+      <point x="-215.0" y="0.0" />
+    </edge>
+    <edge source="view.MainFrame" target="view.PasswordsPanel" relationship="CREATE">
+      <point x="70.125" y="-126.5" />
+      <point x="-147.0" y="82.5" />
+    </edge>
+    <edge source="view.MainFrame" target="view.AccountDetailsFrame" relationship="CREATE">
+      <point x="120.5" y="15.0" />
+      <point x="1709.25" y="1230.5" />
+      <point x="37.0" y="70.5" />
+    </edge>
+    <edge source="App" target="view.MainFrame" relationship="CREATE">
+      <point x="0.0" y="-37.5" />
+      <point x="0.0" y="126.5" />
+    </edge>
+    <edge source="view.PasswordsPanel" target="models.User" relationship="TO_ONE">
+      <point x="0.0" y="-82.5" />
+      <point x="1267.25" y="813.0" />
+      <point x="741.25" y="813.0" />
+      <point x="741.25" y="419.0" />
+      <point x="361.149" y="419.0" />
+      <point x="-1.935483870738608E-4" y="203.5" />
+    </edge>
+    <edge source="view.LoginFrame" target="models.User" relationship="TO_MANY">
+      <point x="-1.9354838713070421E-4" y="-82.5" />
+      <point x="481.649" y="813.0" />
+      <point x="741.25" y="813.0" />
+      <point x="741.25" y="419.0" />
+      <point x="361.149" y="419.0" />
+      <point x="-1.935483870738608E-4" y="203.5" />
+    </edge>
+    <edge source="view.AccountDetailsFrame" target="models.User" relationship="TO_ONE">
+      <point x="0.0" y="-70.5" />
+      <point x="1672.25" y="419.0" />
+      <point x="361.149" y="419.0" />
+      <point x="-1.935483870738608E-4" y="203.5" />
+    </edge>
+    <edge source="view.MainFrame" target="controllers.MainActionListener" relationship="CREATE">
+      <point x="-15.0" y="-126.5" />
+      <point x="117.375" y="93.5" />
+    </edge>
+    <edge source="view.LoginFrame" target="controllers.LoginListener" relationship="TO_ONE">
+      <point x="33.35080645161287" y="-82.5" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="controllers.MainActionListener" target="view.MainFrame" relationship="TO_ONE">
+      <point x="147.375" y="93.5" />
+      <point x="15.0" y="-126.5" />
+    </edge>
+    <edge source="view.MainFrame" target="controllers.MainActionListener" relationship="TO_ONE">
+      <point x="-85.625" y="-126.5" />
+      <point x="964.5" y="1074.0" />
+      <point x="902.75" y="1074.0" />
+      <point x="-15.0" y="93.5" />
+    </edge>
+    <edge source="view.MainFrame" target="view.LoginFrame" relationship="CREATE">
+      <point x="-120.5" y="15.0" />
+      <point x="481.64919354838713" y="1230.5" />
+      <point x="0.0" y="82.5" />
+    </edge>
+    <edge source="view.MainFrame" target="view.PasswordDialogFrame" relationship="TO_ONE">
+      <point x="0.0" y="-126.5" />
+      <point x="1050.125" y="1058.0" />
+      <point x="1188.125" y="1058.0" />
+      <point x="1188.125" y="1096.5" />
+      <point x="1679.25" y="1096.5" />
+      <point x="1679.25" y="703.5" />
+      <point x="151.9998064516128" y="88.0" />
+    </edge>
+    <edge source="controllers.LoginEvent" target="models.User" relationship="TO_ONE">
+      <point x="0.0" y="-60.5" />
+      <point x="240.0" y="419.0" />
+      <point x="361.149" y="419.0" />
+      <point x="-1.935483870738608E-4" y="203.5" />
+    </edge>
+    <edge source="view.PasswordsPanel" target="view.PasswordPanel" relationship="CREATE">
+      <point x="83.0" y="-82.5" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="view.MainFrame" target="view.PasswordsPanel" relationship="TO_ONE">
+      <point x="55.125" y="-126.5" />
+      <point x="-162.0" y="82.5" />
+    </edge>
+    <edge source="view.MainFrame" target="models.User" relationship="TO_ONE">
+      <point x="-120.5" y="0.0" />
+      <point x="741.25" y="1215.5" />
+      <point x="741.25" y="419.0" />
+      <point x="361.149" y="419.0" />
+      <point x="-1.935483870738608E-4" y="203.5" />
+    </edge>
+    <edge source="view.LoginFrame" target="controllers.LoginEvent" relationship="CREATE">
+      <point x="-117.0" y="-15.0" />
+      <point x="240.0" y="918.5" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="view.MainFrame" target="view.LoginFrame" relationship="TO_ONE">
+      <point x="-120.5" y="30.0" />
+      <point x="466.64919354838713" y="1245.5" />
+      <point x="-15.0" y="82.5" />
+    </edge>
+    <edge source="view.MainFrame" target="view.PasswordDialogFrame" relationship="CREATE">
+      <point x="120.5" y="30.0" />
+      <point x="1803.25" y="1245.5" />
+      <point x="1803.25" y="527.5" />
+      <point x="152.0" y="-88.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.49693934335002776" showDependencies="true" x="864.5" y="874.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

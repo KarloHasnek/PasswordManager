@@ -5,16 +5,17 @@ import controllers.LoginEvent;
 import controllers.LoginListener;
 import models.User;
 import net.miginfocom.swing.MigLayout;
-import controllers.DBHandler;
+import models.DBHandler;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Set;
 
+/**
+ * LoginFrame class used for displaying the login frame.
+ */
 public class LoginFrame extends JFrame {
 
     private JLabel icon;
@@ -41,6 +42,10 @@ public class LoginFrame extends JFrame {
         layoutComps();
     }
 
+    /**
+     * Initializes the components for the login frame.
+     * Reads user data from the database, creates labels, text fields, and buttons.
+     */
     private void initComps() {
         users = DBHandler.readDB();
         System.out.println(users);
@@ -56,6 +61,10 @@ public class LoginFrame extends JFrame {
         register = new JButton("Register");
     }
 
+    /**
+     * Configures the layout of the components in the login frame.
+     * Adds labels, text fields, and buttons to the layout.
+     */
     private void layoutComps() {
         setLayout(new MigLayout("insets 180 50 50 50, center", "", "[]20[][]"));
         add(icon, "split 2, center, span");
@@ -66,13 +75,22 @@ public class LoginFrame extends JFrame {
         add(passwordField, "split 2, center, wrap");
         add(logIn, "split 2, center, span, gapafter 40");
         add(register);
-
     }
 
+    /**
+     * Sets the login listener for the login frame.
+     * The login listener is notified when the user successfully logs in.
+     *
+     * @param loginListener The LoginListener to be set.
+     */
     public void setLoginListener(LoginListener loginListener) {
         this.loginListener = loginListener;
     }
 
+    /**
+     * Activates the components by adding action listeners to buttons.
+     * Defines the behavior of the buttons when clicked.
+     */
     public void activateComps() {
 
         if (loginListener != null) {

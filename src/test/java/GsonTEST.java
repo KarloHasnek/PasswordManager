@@ -1,11 +1,9 @@
-import controllers.DBHandler;
 import models.User;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-import static controllers.DBHandler.addToDB;
-import static controllers.DBHandler.saveUsersToJson;
+import static models.DBHandler.addToDB;
 
 public class GsonTEST {
 

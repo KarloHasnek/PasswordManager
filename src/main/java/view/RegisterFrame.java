@@ -1,17 +1,19 @@
 package view;
 
 import controllers.AUXCLS;
-import controllers.DBHandler;
+import models.DBHandler;
 import models.User;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * Frame for creationg a new user for the application.
+ */
 public class RegisterFrame extends JFrame {
 
     private static final int WIDTH = 600;
@@ -44,6 +46,9 @@ public class RegisterFrame extends JFrame {
         activateComps();
     }
 
+    /**
+     * Initializes the spinner for the age.
+     */
     private void initSpinner() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, 1900);
@@ -51,17 +56,17 @@ public class RegisterFrame extends JFrame {
         calendar.set(Calendar.YEAR, 2100);
         Date endDate = calendar.getTime();
         SpinnerDateModel model = new SpinnerDateModel(new Date(), startDate, endDate, Calendar.DAY_OF_MONTH);
-
-        // Create the JSpinner with the SpinnerDateModel
         ageSpinner = new JSpinner(model);
         ageSpinner.setFont(new Font("Calibri", Font.PLAIN, 14));
-        // Create a custom editor to display and format the date
         JSpinner.DateEditor editor = new JSpinner.DateEditor(ageSpinner, "dd/MM/yyyy");
-        SimpleDateFormat format = (SimpleDateFormat) editor.getFormat();
-        format.setLenient(false); // Ensure strict date parsing
+        SimpleDateFormat format = editor.getFormat();
+        format.setLenient(false);
         ageSpinner.setEditor(editor);
     }
 
+    /**
+     * Initializes the components of the frame.
+     */
     private void initComps() {
         icon = new JLabel();
         icon.setIcon(new ImageIcon("src/main/resources/user.png"));
@@ -75,6 +80,9 @@ public class RegisterFrame extends JFrame {
         registerButton = new JButton("Register");
     }
 
+    /**
+     * Lays out the components of the frame.
+     */
     private void layoutComps() {
         setLayout(new MigLayout("insets 50 50 50 50, center"));
         add(icon, "center, span, wrap");
@@ -94,6 +102,9 @@ public class RegisterFrame extends JFrame {
 
     }
 
+    /**
+     * Activates the components of the frame.
+     */
     private void activateComps() {
 
         registerButton.addActionListener(new ActionListener() {
@@ -138,6 +149,9 @@ public class RegisterFrame extends JFrame {
         });
     }
 
+    /**
+     * Resets the password fields in case of error during registration.
+     */
     private void resetPasswordField() {
         passwordField.setText("");
         confirmPasswordField.setText("");

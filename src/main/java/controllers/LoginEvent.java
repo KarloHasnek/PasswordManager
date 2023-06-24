@@ -1,9 +1,11 @@
 package controllers;
 
 import models.User;
-
 import java.util.EventObject;
 
+/**
+ * This class is used to create a custom event that will be called upon when a user logs in.
+ */
 public class LoginEvent extends EventObject {
 
     /**

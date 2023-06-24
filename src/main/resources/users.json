@@ -1,4 +1,1 @@
-[
-  {"name":"admin","surname":"admin","age":"16/10/2020","credentials":{"admin":"admin"},"passwords":{}},
-  {"name":"Karlo","surname":"Hasnek","age":"09/03/2002","credentials":{"KarloH":"password"},"passwords":{}}
-]
+[{"name":"Karlo","surname":"Hasnek","age":"09/03/2002","credentials":{"KarloH":"password"},"passwords":{"google.com":{"Karlo":"password"}}},{"name":"admin","surname":"admin","age":"16/10/2020","credentials":{"admin":"admin"},"passwords":{"google.com":{"KarloH":"password"},"yahoo.com":{"KarloHasnek":"password2"},"bing.com":{"karlo":"karlo"},"facebook.com":{"Karlo":"karloSifra"},"instagram.com":{"Karloh":"testPassword"}}}]
